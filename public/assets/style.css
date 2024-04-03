@@ -1,0 +1,450 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl):where([class]) {
+  /*   margin-block: 0;*/
+  margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor
+}
+
+svg *[stroke] {
+  stroke: currentColor
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
+
+/*----------------------------------------------------------------------*/
+@font-face {
+  font-family: 'Ruthenia-title';
+  src: url(/public/assets/fonts/RuteniaDecor\ Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Ruthenia';
+  src: url(/public/assets/fonts/RuteniaAkcidenta-Regular.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Ruthenia-italic';
+  src: url(/public/assets/fonts/ShypshynaCursiveItalic2008-Rg.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Ruthenia-arial';
+  src: url(/public/assets/fonts/RuteniaArial2009VasylChebanyk.woff2) format("woff2");
+}
+
+
+:root {
+  --background-color: #F2DEBD;
+  --background-color-container: rgba(224, 206, 179,0.6);
+  --background-color-card: #4F7178;
+  --background-color-title: #c95845;
+  --background-color-title2: #cfc13e;
+
+
+  --fons-size: clamp(12px, 1.9vw, 20px);
+  --h3: clamp(16px, 18px, 20px);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: 'Ruthenia', sans-serif;
+  font-size: var(--h3);
+}
+
+html {
+  /* overflow-y: hidden; */
+
+}
+
+body {
+  background: rgb(21,245,186);
+  background: linear-gradient(315deg, rgba(21,245,186,1) 0%, rgba(64,210,213,1) 28%, rgba(222,170,173,1) 66%, rgba(131,111,255,1) 100%);
+  font-family: 'Ruthenia-arial';
+  font-size: var(--fons-size);
+}
+.nav-list{
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  padding: 10px;  
+}
+.nav__item{
+  background-color: #8fd0d0;
+  border-radius: 30px;
+  padding: 10px;
+  transition: 0.3s;
+  border: 1px solid rgba(100, 92, 92,0.5);
+
+}
+
+.nav__item:hover{
+  background-color: #46f8d8;
+  border: 1px solid rgb(63, 41, 41);
+}
+
+.container {
+  width: 100%;
+  padding: 15px;
+  max-width: 1920px;
+  margin: 0 auto;
+  text-align: center;
+  background-color: var(--background-color-container);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+}
+
+.card-container {
+  display: flex;
+  width: 100%;
+  /* grid-template-columns: repeat(auto-fill, 300px); */
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.card-wrapper {
+
+  position: relative;
+  background-color: #303838;
+  display: flex;
+  justify-content: end;
+  width: 300px;
+  border-radius: 20px;
+}
+
+.button-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-button {
+  background-image: url(/images/insect.png);
+  background-repeat: no-repeat;
+  background-size: 32px;
+  background-position: top;
+}
+
+.card-button {
+
+  background-color: #c95845;
+  top: 0;
+  left: 0;
+  margin: 0px 0px 10px 10px;
+  border-radius: 100% 0% 70% 30% / 42% 76% 24% 58%;
+  width: 60px;
+  height: 74px;
+  border-style: none;
+  box-shadow: rgba(0, 0, 0, 0.35) 4px 4px 5px;
+
+}
+
+.card_latin {
+  background-color: #cfc13e;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  text-align: center;
+  flex-direction: column;
+  transition: 0.3s;
+  max-width: 250px;
+  min-width: 200px;
+  border: 1px solid rgb(219, 186, 53);
+  z-index: 1;
+  padding: 3px;
+  background-color: var(--background-color-card);
+  
+  
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 2px 5px;
+}
+.test{
+  background-color: #309A94;
+  width: 200px;
+  height: 200px;
+}
+.test > img{
+  display: inline-block;
+  width: 200px;
+  height: 200px;
+}
+
+.card-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+
+.card-title__wrap {
+  background-color: var(--background-color-title);
+  border-radius: 20px 20px 0 0;
+  padding: 10px;
+  color: #fff4e3;
+  margin: -3px;
+  margin-bottom: 3px;
+}
+
+.card-wrappers{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  margin-right: 50px;
+}
+.card-nav{
+  position: absolute;
+
+  top: 300px;
+  left: 120px;
+  z-index: 0;
+  transition: 0.5s;
+
+}
+.card-nav-list{
+  position: relative;
+  filter: drop-shadow(1px 2px 1px rgba(0, 0, 0, 0.8));
+  background-color: #309A94;
+  border-radius: 0px 10px 10px 0px;
+  padding: 10px;
+  border: 1px solid #35776091;
+  transition: 0.4s;
+  z-index: 10;
+}
+.card-nav-list::after{
+  display: block;
+  content: url(../../images/bug.png);
+  position: absolute;
+  top: 0;
+  left: 100px;
+  width: 32px;
+  height: 32px;
+}
+
+
+.card-nav-list:hover{
+  background-color: #d5b227;
+  transform:translateX(20px);
+
+  transition: 0.5s;
+}
+.card-title__latin {
+  background-color: var(--background-color-title2);
+
+  padding: 10px;
+  color: #fff4e3;
+  margin: -3px;
+  margin-bottom: 3px;
+}
+
+
+
+
+.card-images {
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  display: inline-block;
+  object-fit: contain;
+  overflow: hidden;
+  border-radius: 20px;
+
+}
+
+.card-images::after {
+
+  display: block;
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(61, 59, 57, 0.8) 0px 0px 10px 0px inset, rgba(53, 53, 53, 0.48) 5px 5px 10px 0px inset;
+}
+
+.card__image {
+  position: absolute;
+  transition: 1s;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.card:hover {
+  box-shadow: rgba(0, 0, 0, 0.35) 5px 2px 15px;
+  /* transform: rotate(1deg); */
+}
+
+.card:hover>.card-images>img {
+  transform: scale(1.1);
+
+}
+
+.card__text {
+  padding-top: 10px;
+  color: rgb(235, 229, 210);
+  flex: 1 1 auto;
+font-size: 16px;
+}
+
+.card__title-latin {}
+
+.card__title {
+  position: relative;
+  transition: 0.4s;
+}
+
+.blur {
+  filter: blur(5px);
+  z-index: 1;
+  transition: 0.4s;
+
+}

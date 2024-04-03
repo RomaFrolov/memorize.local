@@ -1,0 +1,68 @@
+<div class="card">
+    <div class="card-title__wrap">
+      <h3 class="card__title">Хрущ травневий</h3>
+    </div>
+    <div class="card-title__latin">
+      <h4 class="card__title-latin">  </h4>
+    </div>
+
+    <div class="card-images">
+      <img class="card__image" src="/images/Feldmaikäfer_(Melolontha_melolontha)_w_3.jpg" alt="">
+    </div>
+
+    <p class="card__text">Низ тіла, голова й пронотум — чорні.</p>
+    <a href="item" class="card-link"></a>
+
+  </div>
+  <div class="card">
+    <div class="card-title__wrap">
+      <h3 class="card__title">Косатець Махаон </h3>
+    </div>
+    <div class="card-title__latin">
+      <h4 class="card__title-latin">Papilio machaon</h4>
+    </div>
+
+    <div class="card-images">
+      <img class="card__image" src="/images/Papilio_Machaon_JPG1a.jpg" alt="">
+    </div>
+
+    <p class="card__text">Косатець Махаон (Papilio machaon)</p>
+    <a href="item.php" class="card-link"></a>
+
+  </div>
+  <div class="card">
+    <div class="card-title__wrap">
+      <h3 class="card__title">Коник зелений</h3>
+    </div>
+    <div class="card-title__latin">
+      <h4 class="card__title-latin">Tettigonia viridissima</h4>
+    </div>
+    <div class="card-images">
+      <img class="card__image" src="/images/781px-Criquet.1(L).jpg" alt="">
+    </div>
+
+    <p class="card__text">Зелені коники найбільшу активність</p>
+    <a href="item.php" class="card-link"></a>
+
+  </div>
+
+
+  if (isset($_GET['latin-name'])) {
+    $name = $_GET['ua-name'];
+    $nameLatin = $_GET['latin-name'];
+    $photo = $_GET['photo'];
+    $description = $_GET['description'];
+  
+    $category = $_GET['category'];
+  
+  
+    if ($db->query("INSERT INTO `posts` (`id`, `title`, `latin`, `images`, `description`) 
+          VALUES (NULL, '$name', '$nameLatin', '$photo', '$description')")) {
+      echo "<script>
+                  alert ('Add new product');
+                  location.href ='admin';
+                  </script>";
+    } else {
+      echo ('errors');
+    }
+  };
