@@ -12,6 +12,9 @@
       <li class="nav__item">
         <a href="create">Створити пост</a><br>
       </li>      
+      <li class="nav__item">
+        <a href="create"> пост</a><br>
+      </li>      
          
     </ul>
   </nav>
