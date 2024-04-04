@@ -7,6 +7,9 @@
     <li class="nav__item">
         <a href="create_category">Створити категорію</a><br>
       </li> 
+      <li class="nav__item">
+        <a href="edit_category">Редагувати категорію</a><br>
+      </li> 
     <li class="nav__item">
         <a href="delete_category">Видалити категорію</a><br>
       </li> 

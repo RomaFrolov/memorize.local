@@ -30,5 +30,6 @@ $insectClass = [
     'Thysanoptera'=>'26',
     'Zygentoma'=>'27',
     'Embioptera'=>'28',
+    'goods'=>'99',
 
 ];

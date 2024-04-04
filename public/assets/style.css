@@ -177,7 +177,12 @@ svg * {
   margin-bottom: 15px;
   
 }
-.sort-category__item{
+.sort-category__number{
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #309A94;
+
 }
 .sort-category__link{
   background-color: #c95845;

@@ -12,10 +12,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // $photo = addslashes($_POST['photo']);
   $description = addslashes($_POST['description']);
   $id = $_GET['id'];
-  // $categoryes = $_POST['categories'];
+  $categoryes = $_POST['categories'];
 
-  $db->query("UPDATE `cards` SET `title` = '$name', `latin` = '$nameLatin', `description` = '$description' WHERE `cards`.`id` = '$id' ");
-  
+  $db->query("UPDATE `cards` SET `title` = '$name', `latin` = '$nameLatin', `description` = '$description', `category` = '$categoryes' WHERE `cards`.`id` = '$id' ");
+
 
 }
 if (isset($_POST['delete_card'])) {

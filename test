@@ -92,4 +92,9 @@
   print_r($_GET);
   print_r($category);
   
-  
+  <?php
+        if($_GET['category']=='Lepidoptera'){
+          ?>
+          <p class="sort-category__number"><?= $lepidoptera;?></p>
+        <?php }
+        ?>

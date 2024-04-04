@@ -23,6 +23,9 @@ require_once VIEWS ."/incs/header.tpl.php";
 require_once VIEWS ."/incs/index_body.tpl.php";
 
 
+
+
+
 ?>
 
 <div class="card-container">

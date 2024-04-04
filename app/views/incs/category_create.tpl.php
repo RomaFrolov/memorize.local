@@ -26,6 +26,8 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
     </div>
 
   </div>
+
+  
 </body>
 
 </html>
