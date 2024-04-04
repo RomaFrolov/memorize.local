@@ -13,8 +13,9 @@ $id = $_GET['id'] ?? 0;
 
 $post = $db->query("SELECT * FROM `cards`")->findAll();
 
-$category = $db->query("SELECT * FROM `insectcategory`")->findAll();
-// $post = $db->query("SELECT * FROM `cards` ORDER by `title` ASC")->findAll();
+$category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
+")->findAll();
+$post = $db->query("SELECT * FROM `cards`")->findAll();
 
 
 

@@ -14,6 +14,7 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
         <a href="post_edit?id=<?= $post['id']; ?>">Редагувати пост</a><br>
       </li>
       
+      
     </ul>
   </nav>
   <div class="card-container">

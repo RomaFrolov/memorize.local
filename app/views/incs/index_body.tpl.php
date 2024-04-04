@@ -21,7 +21,8 @@ require_once CONFIG . '/insectClass.php' ;
 
 </body>
 <?php
-$category = $db->query("SELECT * FROM `insectcategory`")->findOrFail();
+$category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
+")->findOrFail();
 
 if ($_GET['category']) {
     $id = $insectClass[$_GET['category']];
