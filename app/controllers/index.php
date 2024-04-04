@@ -14,16 +14,16 @@ $id = $_GET['id'] ?? 0;
 $post = $db->query("SELECT * FROM `cards`")->findAll();
 
 $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
-
+// $post = $db->query("SELECT * FROM `cards` ORDER by `title` ASC")->findAll();
 
 
 
 require_once VIEWS ."/incs/header.tpl.php";
+require_once VIEWS ."/incs/index_body.tpl.php";
 
-$myimg = IMAGES . '/insect.jpg';
-var_dump($myimg);
+
 ?>
-<img src="<?= $myimg;?>" alt="">
+
 <div class="card-container">
   <?php foreach ($post as $item):?>
 
@@ -43,21 +43,7 @@ var_dump($myimg);
     <a href="post?id=<?= ($item['id']); ?>">більше</a>
     <!-- <a href="item?id=<?php echo ($item['id']); ?>" class="card-link"></a> -->
   </div>
-<div class="card-nav">
-      <ul class="card-nav-list">
-        <li class="card-nav__item">
-</li>
-      </ul>
-      <ul class="card-nav-list">
-        <li class="card-nav__item">систематика</li>
-      </ul>
-      <ul class="card-nav-list">
-        <li class="card-nav__item">ареал</li>
-      </ul>
-      <ul class="card-nav-list">
-        <li class="card-nav__item">цікаве</li>
-      </ul>
-    </div>
+
 </div>
   <?php endforeach; ?>
 

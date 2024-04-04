@@ -42,6 +42,7 @@ print_r($_GET['id']);
             </select>
 
             <button type="submit">Редагувати</button>
+            <button type="submit" name="delete_card">Видалити</button>
 
         </form>
 

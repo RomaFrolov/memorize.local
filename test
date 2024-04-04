@@ -66,3 +66,30 @@
       echo ('errors');
     }
   };
+
+
+  <body>
+    <p>Сортування</p>
+    <select name="categories" id="">
+      <?php foreach ($category as $item) : ?>
+        <option value="<?= ($item['id']); ?>">
+          <?= ($item['category']); ?>
+        </option>
+  
+      <?php endforeach; ?>
+    </select>
+    <a href="?category=<?= ($category[0]['category']); ?>">lepidoptera</a>
+  </body>
+  <?php
+  $category = $db->query("SELECT * FROM `insectcategory`")->findOrFail();
+  
+  if ($_GET['category'] == 'Lepidoptera') {
+    if ($category['category'] == 'Lepidoptera') {
+      
+      $post = $db->query("SELECT * FROM `cards`  WHERE `category` = 1")->findAll();
+    }
+  }
+  print_r($_GET);
+  print_r($category);
+  
+  
