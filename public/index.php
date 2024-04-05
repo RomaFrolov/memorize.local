@@ -10,9 +10,4 @@ $db_confiq = require CONFIG . '/db.php';
 $db = new Db($db_confiq);
 
 
-require_once CORE . "/router.php";
-
-
-
-
-
+require_once CORE . "/router.php";  

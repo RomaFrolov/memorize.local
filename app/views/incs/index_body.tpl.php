@@ -7,16 +7,14 @@ if ($_GET['category']) {
   $id = $insectClass[$_GET['category']];
   $post = $db->query("SELECT * FROM `cards`  WHERE `category` = '$id'")->findAll();
   $counter = count($post);
-
-
 }
 if ($_GET['category']=='all') {
 
 $post = $db->query("SELECT * FROM `cards`")->findAll();
-
+$card = $db->query("SELECT * FROM `card`")->findAll();
 }
-$counterall = count($post);
-$coleoptera = count($post);
+// $counterall = count($post) + count($card);
+// $coleoptera = count($post);
 // яка кількість масивів існує в категорії 
 
 // print_r($_POST);
@@ -26,14 +24,12 @@ $coleoptera = count($post);
   <nav class="nav-category-sort">
 <h4>Сортування</h4>
     <ul class="sort-category">
-    <p class="sort-category__number"><?= $counterall ;?></p>
+    <p title="Кількість карток в категорії" class="sort-category__number"></p>
 
-      <li class="sort-category__item"><a class="sort-category__link" href="?category=all">Всі</a>
+      <li  class="sort-category__item"><a class="sort-category__link" href="?category=all">Всі</a>
 </li>
     <?php foreach ($category as $item) : ?>
       
-      
-
       <li class="sort-category__item">
       <a class="sort-category__link" href="?category=<?= ($item['category']); ?>"> <?= ($item['category']); ?></a>
       </li>
@@ -52,6 +48,7 @@ $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`
 if ($_GET['category']) {
     $id = $insectClass[$_GET['category']];
     $post = $db->query("SELECT * FROM `cards`  WHERE `category` = '$id'")->findAll();
+    $card = $db->query("SELECT * FROM `card`  WHERE `category` = '$id'")->findAll();
     $counter = count($post);
 
   
@@ -59,6 +56,7 @@ if ($_GET['category']) {
 if ($_GET['category']=='all') {
 
   $post = $db->query("SELECT * FROM `cards`")->findAll();
+  $card = $db->query("SELECT * FROM `card`")->findAll();
 
 }
 
