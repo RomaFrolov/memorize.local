@@ -1,12 +1,11 @@
 <?php
-require_once VIEWS ."/incs/header.tpl.php";
+require_once VIEWS . "/incs/header.tpl.php";
 require_once CONFIG . "/config.php";
-require_once VIEWS . "/incs/random_card.tpl.php";
 
 ?>
 
 <body>
-  <section class="container">
+
     <?php
 
     $id = $_GET['id'] ?? 0;
@@ -18,12 +17,18 @@ require_once VIEWS . "/incs/random_card.tpl.php";
 ")->findAll();
 
 
-$rand_post = [];
-$rand_post = array_rand($post, 3);
-
-// require_once VIEWS . "/incs/random_card.tpl.php";
-
-?>
 
 
+    // require_once VIEWS . "/incs/random_card.tpl.php";
 
+    ?>
+    <main class="main container">
+      <?php
+      require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
+      <section class="card">
+        <?php require_once VIEWS . "/incs/random_card.tpl.php";
+        ?>
+      </section>
+      <?php require_once VIEWS . "/incs/nav-right.tpl.php";
+      ?>
+    </main>

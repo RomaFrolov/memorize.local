@@ -1,9 +1,6 @@
 <?php
 
 
-require_once VIEWS . "/incs/header.tpl.php";
-require_once CONTROLLERS . "/card_create.php";
-require_once VIEWS . "/incs/admin.tpl.php";
 
 $name =addslashes($_POST['category']);
 $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
@@ -11,8 +8,8 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
 
 
 ?>
-<body>
-  <div class="card">
+
+  <div class="card-item">
   <form action="" class="form" method="POST">
     <label for="">питання</label>
     <input type="text" name="card_name" required>
@@ -33,5 +30,3 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
 
 
 </div>
-</body>
-</html>

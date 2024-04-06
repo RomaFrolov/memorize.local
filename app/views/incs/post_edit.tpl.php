@@ -1,7 +1,7 @@
 <?php
 
 
-require_once VIEWS . "/incs/header.tpl.php";
+
 
 $name = addslashes($_POST['category']);
 $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
@@ -9,12 +9,12 @@ $id = $_GET['id'];
 $post = $db->query("SELECT * FROM `cards` WHERE id={$id}")->find();
 
 
-print_r($_GET['id']);
+
 ?>
 
 
-<body>
-  <section class="container">
+
+
     <div class="card-container">
         <form action="" method="POST">
           <div class="card">
@@ -50,8 +50,4 @@ print_r($_GET['id']);
         <!-- <a href="item?id=<?php echo ($item['id']); ?>" class="card-link"></a> -->
     </div>
 
-  </section>
-  </div>
-</body>
 
-</html>

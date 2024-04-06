@@ -3,9 +3,21 @@
 /**
  * @var Db $db
  */
-require_once PUBLICS . "/index.php";
+require_once VIEWS . "/incs/header.tpl.php";
 
+?>
 
+<main class="main container">
+  <?php
+  require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
+  <section class="card">
+    <?php require_once VIEWS . "/incs/post_edit.tpl.php";
+    ?>
+  </section>
+  <?php require_once VIEWS . "/incs/admin.tpl.php";
+  ?>
+</main>
+<?php
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $name = addslashes($_POST['ua_card_name']);
   $nameLatin = addslashes($_POST['latin_card_name']);
@@ -27,4 +39,4 @@ if (isset($_POST['delete_card'])) {
             </script>";
 }
 
-require_once VIEWS . "/incs/post_edit.tpl.php";
+

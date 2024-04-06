@@ -10,8 +10,9 @@ class Db{
   }
 
   public function query($query,$params = []){
+    
        $this->stmt = $this->connection->prepare($query);
-       $this->stmt->execute();
+       $this->stmt->execute($params);
        return $this; //повертати не властивість об'єкту а сам об'єкт
   }
 

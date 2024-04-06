@@ -1,9 +1,7 @@
 <?php
 
 
-require_once VIEWS . "/incs/header.tpl.php";
-require_once CONTROLLERS . "/category_delete.php";
-require_once VIEWS . "/incs/admin.tpl.php";
+
 
 $name = addslashes($_POST['category']);
 $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
@@ -12,7 +10,7 @@ $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`
 
 ?>
 
-<body>
+
   <div class="category-wrapp">
     <?php foreach ($category as $item) : ?>
 
@@ -30,6 +28,3 @@ $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`
   </div>
 
 
-</body>
-
-</html>

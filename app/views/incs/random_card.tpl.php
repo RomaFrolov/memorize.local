@@ -10,43 +10,40 @@ $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`
 
 
 $rand_post = [];
-$rand_post = array_rand($card, 4);
+$rand_post = array_rand($card, 5);
 
 ?>
 
-<div class="card-container">
+<section class="card">
+  <div class="card-wrap">
+    <?php foreach ($rand_post as $item) : ?>
 
 
-  <?php foreach ($rand_post as $item) : ?>
-    <div class="card-wrappers">
-
-      <div class="card">
-        <div class="card-title__wrap">
-          <h3 class="card__title"><?php echo ($card[$item]['title']); ?></h3>
+      <div class="card-item">
+        <div class="card-item__wrap">
+          <h3 class="card-item__title"><?php echo ($card[$item]['title']); ?></h3>
         </div>
-        <div class="card-text">
-          <p data-f="cards" id="<?php echo ($card[$item]['id']); ?>" class="card__text blur"><?php echo ($card[$item]['description']); ?></p>
-        </div>
-        <a href="card?id=<?= ($card[$item]['id']); ?>">більше</a>
+
+          <p data-f="cards" id="<?php echo ($card[$item]['id']); ?>" class="card-item__text blur"><?php echo ($card[$item]['description']); ?></p>
+
+        <a class="card-item__link" href="card?id=<?= ($card[$item]['id']); ?>">більше</a>
         <!-- <a href="item?id=<?php echo ($card[$item]['id']); ?>" class="card-link"></a> -->
       </div>
 
-    </div>
-  <?php endforeach; ?>
 
-</div>
-
-
+    <?php endforeach; ?>
+  </div>
 
 </section>
 </body>
+
 <script>
-  let card = document.getElementsByClassName('card__text');
+  let card = document.getElementsByClassName('card-item__text');
   for (let item of card) {
     item.addEventListener('click', event => {
       if (event.target.tagName !== 'P') return false;
 
-      if (event.target.classList.contains('card__text')) {
+      if (event.target.classList.contains('card-item__text')) {
         event.currentTarget.classList.toggle('blur');
         console.log(event.target.dataset);
 

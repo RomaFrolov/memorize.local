@@ -1,16 +1,14 @@
 <?php
 
 
-require_once VIEWS . "/incs/header.tpl.php";
-require_once CONTROLLERS . "/category_edit.php";
-require_once VIEWS . "/incs/admin.tpl.php";
+
 
 $name = addslashes($_POST['category']);
 $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
 
 
 ?>
-<body>
+
 <div class="category-wrapp">
     <?php foreach ($category as $item) : ?>
 
@@ -28,6 +26,3 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
 
     <?php endforeach; ?>
   </div>
-</body>
-
-</html>

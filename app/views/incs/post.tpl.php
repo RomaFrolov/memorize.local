@@ -17,9 +17,9 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
       
     </ul>
   </nav>
-  <div class="card-container">
+  <div class="card">
 
-    <div class="card">
+    <div class="card-item">
       <div class="card-title__wrap">
         <h3 data-f="all" class="card__title "><?php echo ($post['title']); ?></h3>
       </div>
