@@ -5,21 +5,12 @@
     <div class="card-container">
       <form action="" method="POST">
         <div class="card">
-          <input type="hidden" name="id" value="<?= $post['id'] ?>">
+          <input type="hidden" name="id" value="<?= $card['id'] ?>">
 
           <div class="card-title__wrap">
-            <input type="text" name="ua_card_name" value="<?php echo ($post['title']); ?>">
+            <input type="text" name="ua_card_name" value="<?php echo ($card['title']); ?>">
           </div>
-
-          <div class="card-title__latin">
-            <input type="text" name="latin_card_name" value="<?php echo ($post['latin']); ?>">
-          </div>
-
-          <div class="card-images">
-            <img class="card__image" src="<?php echo ($post['image']); ?>" width="200px" alt="">
-          </div>
-
-          <textarea cols="30" rows="10" type="text" name="description" value="<?php echo ($post['description']); ?>"><?php echo ($post['description']); ?>
+          <textarea cols="30" rows="10" type="text" name="description" value="<?php echo ($card['description']); ?>"><?php echo ($card['description']); ?>
             </textarea>
 
           <select name="categories" id="">
@@ -29,7 +20,7 @@
           </select>
 
           <button type="submit">Редагувати</button>
-          <button type="submit" name="delete_post">Видалити</button>
+          <button type="submit" name="delete_card">Видалити</button>
 
       </form>
 

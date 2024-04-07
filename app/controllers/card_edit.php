@@ -10,8 +10,7 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
 $id = $_GET['id'];
 $card = $db->query("SELECT * FROM `card` WHERE id={$id}")->find();
 
-
-require_once VIEWS . "/incs/post_edit.tpl.php";
+require_once VIEWS . "/incs/card_edit.tpl.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $name = addslashes($_POST['ua_card_name']);
@@ -22,12 +21,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $categoryes = $_POST['categories'];
 
   $db->query("UPDATE `card` SET `title` = '$name', `description` = '$description', `category` = '$categoryes' WHERE `card`.`id` = '$id'");
+  echo "<script>
+  alert ('Пост успішно редаговано');
+  location.href ='card?id={$id}';
+  </script>";
 }
-if (isset($_POST['delete_post'])) {
+if (isset($_POST['delete_card'])) {
   $id = $_GET['id'];
-  $db->query("DELETE FROM `card` WHERE `cards`.`id` = '$id'");
+  $db->query("DELETE FROM `card` WHERE `card`.`id` = '$id'");
   echo "<script>
             alert ('Пост успішно видален');
             location.href ='/';
             </script>";
 }
+

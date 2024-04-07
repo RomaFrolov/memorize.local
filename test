@@ -93,10 +93,23 @@
   print_r($category);
   
   <?php
-        if($_GET['category']=='Lepidoptera'){
-          ?>
-          <p class="sort-category__number"><?= $lepidoptera;?></p>
-        <?php }
-        ?>
 
-        
+ 
+
+  <nav class="main-right">
+
+  <ul class="main-right__list">
+
+    <li class="main-right__item">
+      <a class="main-right__link" href="?category=all">Всі</a><br>
+    </li>
+
+    <?php foreach ($category as $item) : ?>
+      <li class="main-right__item">
+        <a class="main-right__link"  href="?category=<?= ($item['category']); ?>"> <?= ($item['category']); ?></a><br>
+      </li>
+    <?php endforeach; ?>
+
+  </ul>
+
+</nav>    

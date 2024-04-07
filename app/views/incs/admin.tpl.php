@@ -1,24 +1,24 @@
-<nav class="main-right">
+<main class="main container">
+  <?php
+  require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
+  <section class="card">
+  <div class="category-wrapp">
+    <?php foreach ($category as $item) : ?>
 
-    <ul class="main-right__list">
+      <div class="category">
 
-      <li class="main-right__item">
-        <a class="main-right__link" href="create">Створити пост</a><br>
-      </li>
-      <li class="main-right__item">
-        <a class="main-right__link" href="create_card">Створити картку</a><br>
-      </li>
-      <li class="main-right__item">
-        <a class="main-right__link" href="create_category">Створити категорію</a><br>
-      </li>
-      <li class="main-right__item">
-        <a class="main-right__link" href="edit_category">Редагувати категорію</a><br>
-      </li>
-      <li class="main-right__item">
-        <a class="main-right__link" href="delete_category">Видалити категорію</a><br>
-      </li>
+        <form action="" class="form" method="POST">
+          <input type="hidden" name="id" value="<?= $item['id'] ?>">
+          <label for=""><?= $item['category'] ?></label>
+          <button type="submit" name="delete_category">Видалити</button>
+        </form>
 
-    
-    </ul>
+      </div>
 
-  </nav>
+    <?php endforeach; ?>
+  </div>
+
+  </section>
+  <?php require_once VIEWS . "/incs/admin_right_nav.tpl.php";
+  ?>
+</main>

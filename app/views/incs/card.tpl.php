@@ -11,7 +11,7 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
     <ul class="nav-list">
 
       <li class="nav__item">
-        <a href="post_edit?id=<?= $post['id']; ?>">Редагувати пост</a><br>
+        <a href="card_edit?id=<?= $card['id']; ?>">Редагувати пост</a><br>
       </li>
       
       

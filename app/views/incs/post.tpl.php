@@ -11,7 +11,7 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
     <ul class="nav-list">
 
       <li class="nav__item">
-        <a href="post_edit?id=<?= $post['id']; ?>">Редагувати пост</a><br>
+        <a href="card_edit?id=<?= $post['id']; ?>">Редагувати пост</a><br>
       </li>
       
       
@@ -31,7 +31,7 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
         <img class="card__image" src="<?php echo ($post['image']); ?>" width="200px" alt="">
       </div>
       <p class="card__text"><?php echo ($post['description']); ?></p>
-      <a href="post?id=<?= ($post['id']); ?>">більше</a>
+      <a href="post?id=<?= ($card['id']); ?>">більше</a>
       </div>
 
     </div>

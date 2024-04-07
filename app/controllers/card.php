@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @var Db $db
  */
@@ -10,6 +11,3 @@ $card = $db->query("SELECT * FROM `card` WHERE id={$id}")->find();
 
 
 require_once VIEWS . "/incs/card.tpl.php";
-
-
-

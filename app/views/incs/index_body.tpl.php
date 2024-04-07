@@ -1,63 +1,16 @@
-<?php
-
-require_once CONFIG . '/insectClass.php' ;
-require_once CONTROLLERS ."/index.php";
-require_once CONTROLLERS ."/counter.php";
-if ($_GET['category']) {
-  $id = $insectClass[$_GET['category']];
-  $post = $db->query("SELECT * FROM `cards`  WHERE `category` = '$id'")->findAll();
-  $counter = count($post);
-}
-if ($_GET['category']=='all') {
-
-$post = $db->query("SELECT * FROM `cards`")->findAll();
-$card = $db->query("SELECT * FROM `card`")->findAll();
-}
-// $counterall = count($post) + count($card);
-// $coleoptera = count($post);
-// яка кількість масивів існує в категорії 
-
-// print_r($_POST);
-?>
-<body>
-  
-  <nav class="nav-category-sort">
-<h4>Сортування</h4>
-    <ul class="sort-category">
+<nav class="main-right">
+  <ul class="main-right__list">
     <p title="Кількість карток в категорії" class="sort-category__number"></p>
 
-      <li  class="sort-category__item"><a class="sort-category__link" href="?category=all">Всі</a>
-</li>
+    <li class="main-right__item"><a class="main-right__link" href="?category=all">Всі</a>
+    </li>
     <?php foreach ($category as $item) : ?>
-      
-      <li class="sort-category__item">
-      <a class="sort-category__link" href="?category=<?= ($item['category']); ?>"> <?= ($item['category']); ?></a>
+
+      <li class="main-right__item">
+        <a class="main-right__link" href="?category=<?= ($item['category']); ?>"> <?= ($item['category']); ?></a>
       </li>
 
-      <?php endforeach; ?>
+    <?php endforeach; ?>
 
-    </ul>
-  </nav>
-
-</body>
-<?php
-$category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
-")->findOrFail();
-
-
-if ($_GET['category']) {
-    $id = $insectClass[$_GET['category']];
-    $post = $db->query("SELECT * FROM `cards`  WHERE `category` = '$id'")->findAll();
-    $card = $db->query("SELECT * FROM `card`  WHERE `category` = '$id'")->findAll();
-    $counter = count($post);
-
-  
-}
-if ($_GET['category']=='all') {
-
-  $post = $db->query("SELECT * FROM `cards`")->findAll();
-  $card = $db->query("SELECT * FROM `card`")->findAll();
-
-}
-
-
+  </ul>
+</nav>

@@ -1,16 +1,7 @@
-<?php
-
-
-
-
-$name = addslashes($_POST['category']);
-$category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
-")->findAll();
-
-
-?>
-
-
+<main class="main container">
+  <?php
+  require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
+  <section class="card">
   <div class="category-wrapp">
     <?php foreach ($category as $item) : ?>
 
@@ -27,4 +18,10 @@ $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`
     <?php endforeach; ?>
   </div>
 
+  </section>
+  <?php require_once VIEWS . "/incs/admin_right_nav.tpl.php";
+  ?>
+</main>
+
+  
 
