@@ -6,7 +6,6 @@
 
 require_once VIEWS . "/incs/header.tpl.php";
 
-$name = addslashes($_POST['category']);
 $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
 ")->findAll();
 

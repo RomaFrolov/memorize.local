@@ -1,8 +1,32 @@
+.input {
+  position: relative;
+  background-color: #d8d8d8;
+  font-size: 20px;
+  border: none;
+  -webkit-box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
+          box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
+  border: 1px solid #087582;
+  border-radius: 20px;
+  padding: 10px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+}
+.input:hover {
+  -webkit-box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
+          box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  background-color: #08b9ce;
+}
+
 body {
   color: rgb(77, 59, 36);
   background: rgb(199, 208, 212);
   background: -webkit-gradient(linear, left top, right top, from(rgb(199, 208, 212)), to(rgb(181, 175, 185)));
   background: linear-gradient(90deg, rgb(199, 208, 212) 0%, rgb(181, 175, 185) 100%);
+}
+body .hide {
+  display: none;
 }
 body header {
   background: -webkit-gradient(linear, left top, right top, from(rgb(83, 48, 61)), color-stop(48%, rgb(109, 93, 111)), to(rgb(74, 63, 88)));
@@ -177,6 +201,12 @@ body .blur {
 }
 .card-item__link:hover {
   color: #56dde0;
+}
+
+.sort-category__number {
+  background-color: #d8d8d8;
+  padding: 10px;
+  border-radius: 20px;
 }
 
 .main-right {

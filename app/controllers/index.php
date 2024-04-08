@@ -8,7 +8,7 @@ $id = $_GET['id'] ?? 0;
 
 $post = $db->query("SELECT * FROM `cards`")->findAll();
 $card = $db->query("SELECT * FROM `card`")->findAll();
-
+$number = count($card);
 $category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
 ")->findAll();
 
@@ -16,13 +16,14 @@ if (isset($_GET['category'])) {
   if ($_GET['category']) {
     $id = $insectClass[$_GET['category']];
     $card = $db->query("SELECT * FROM `card`  WHERE `category` = '$id'")->findAll();
-    $counter = count($post);
+    $number = count($card);
   }
 
   if ($_GET['category'] == 'all') {
 
     $post = $db->query("SELECT * FROM `cards`")->findAll();
     $card = $db->query("SELECT * FROM `card`")->findAll();
+    $number = count($card);
   }
 }
 

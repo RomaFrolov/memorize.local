@@ -5,7 +5,6 @@
  */
 
 require_once VIEWS . "/incs/header.tpl.php";
-$name = addslashes($_POST['category']);
 $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
 require_once VIEWS . "/incs/post_create.tpl.php";
 
