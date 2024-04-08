@@ -3,6 +3,7 @@
   require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
   <section class="card">
   <div class="category-wrapp">
+    
     <?php foreach ($category as $item) : ?>
 
       <div class="category">

@@ -31,4 +31,5 @@ $insectClass = [
     'Zygentoma'=>'27',
     'Embioptera'=>'28',
     'php'=>'100',
+    'new'=>'108',
 ];

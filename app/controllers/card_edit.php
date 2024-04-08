@@ -31,7 +31,7 @@ if (isset($_POST['delete_card'])) {
   $db->query("DELETE FROM `card` WHERE `card`.`id` = '$id'");
   echo "<script>
             alert ('Пост успішно видален');
-            location.href ='/';
+            location.href ='';
             </script>";
 }
 

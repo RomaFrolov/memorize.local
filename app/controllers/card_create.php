@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           VALUES (NULL, '$name', '$description', '$categoryes')");
   echo "<script>
           alert ('Картка успішно створенно');
-          location.href ='create';
+          location.href ='create_card';
           </script>";
 }
 
