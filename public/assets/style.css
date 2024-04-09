@@ -1,3 +1,152 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+dl):where([class]) {
+  /*   margin-block: 0;*/
+  margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor;
+}
+
+svg *[stroke] {
+  stroke: currentColor;
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  -webkit-transition-property: fill, stroke;
+  transition-property: fill, stroke;
+}
+
 .input {
   position: relative;
   background-color: #d8d8d8;
@@ -8,15 +157,15 @@
   border: 1px solid #087582;
   border-radius: 20px;
   padding: 10px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .input:hover {
   -webkit-box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
           box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  background-color: #08b9ce;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background-color: #7dd0da;
 }
 
 body {
@@ -33,12 +182,11 @@ body header {
   background: linear-gradient(90deg, rgb(83, 48, 61) 0%, rgb(109, 93, 111) 48%, rgb(74, 63, 88) 100%);
   border-radius: 20px;
   color: #f1ad02;
-  padding: 20px;
+  padding: 10px;
 }
 body .container {
   width: 100%;
-  padding: 15px;
-  max-width: 1820px;
+  padding: 10px;
   margin: 0 auto;
   text-align: center;
 }
@@ -51,6 +199,7 @@ body main {
       -ms-flex-direction: row;
           flex-direction: row;
   gap: 20px;
+  height: 93vh;
 }
 body a {
   text-decoration: none;
@@ -68,7 +217,7 @@ body .logo {
   text-decoration: none;
   background-color: #548a97;
   border-radius: 30px;
-  padding: 20px;
+  padding: 10px;
   font-size: 20px;
   color: #e0ba59;
   -webkit-transition: 0.4s;
@@ -119,14 +268,14 @@ body .blur {
   background-color: #e6e1da;
   border-radius: 20px;
   padding: 10px;
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .main-nav__link:hover {
   -webkit-box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
           box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
   background-color: #f1ad02;
 }
 
@@ -161,20 +310,20 @@ body .blur {
       -ms-flex-direction: column;
           flex-direction: column;
   background-color: rgb(211, 218, 224);
-  width: 245px;
+  width: 261px;
   border-radius: 20px;
   -webkit-box-shadow: inset -2px 2px 3px 0px rgb(238, 238, 238);
           box-shadow: inset -2px 2px 3px 0px rgb(238, 238, 238);
   -webkit-box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
           box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .card-item:hover {
   -webkit-box-shadow: -5px 10px 13px -7px rgb(26, 25, 25);
           box-shadow: -5px 10px 13px -7px rgb(26, 25, 25);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .card-item__wrap {
   background: -webkit-gradient(linear, left top, right top, from(rgb(249, 219, 148)), to(rgb(243, 211, 109)));
@@ -188,12 +337,21 @@ body .blur {
   color: #4a3413;
   margin: 0px;
   margin-bottom: 0px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  min-height: 108px;
 }
 .card-item__text {
   padding: 10px;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  text-align: start;
+  font-size: 18px;
+}
+.card-item__title {
+  font-size: 20px;
 }
 .card-item__link {
   padding: 10px;
@@ -241,15 +399,14 @@ body .blur {
   background-color: #e6e1da;
   border-radius: 20px;
   padding: 10px;
-  -webkit-box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
-          box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 .main-right__link:hover {
   -webkit-box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
           box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
-  -webkit-transition: 0.5s;
-  transition: 0.5s;
-  background-color: #56dde0;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  background-color: #1086c5;
+  color: #d8d8d8;
 }

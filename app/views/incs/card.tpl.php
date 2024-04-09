@@ -5,29 +5,33 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
 ?>
 
 
+<main class="main container">
 
-<body>
-  <nav class="nav">
-    <ul class="nav-list">
+  <?php require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
 
-      <li class="nav__item">
-        <a href="card_edit?id=<?= $card['id']; ?>">Редагувати пост</a><br>
-      </li>
-      
-      
-    </ul>
-  </nav>
-  <div class="card-container">
+  <section class="card">
+  <a href="card_edit?id=<?= $card['id']; ?>">Редагувати пост</a><br>
 
-    <div class="card">
-      <div class="card-title__wrap">
-        <h3 data-f="all" class="card__title "><?php echo ($card['title']); ?></h3>
-      </div>
-      <p class="card__text"><?php echo ($card['description']); ?></p>
-      <a href="card?id=<?= ($card['id']); ?>">більше</a>
-      </div>
+    <div class="card-wrap">
+
+
+        <div class="card-item">
+
+          <div class="card-item__wrap">
+            <h3 data-f="all" class="card-item__title "><?php echo ($card['title']); ?></h3>
+          </div>
+          <p class="card-item__text"><?php echo ($card['description']); ?></p>
+          <a class="card-item__link" href="card?id=<?= ($card['id']); ?>">більше</a>
+
+
+        </div>
 
     </div>
-</body>
 
-</html>
+  </section>
+
+
+  <?php require_once VIEWS . "/incs/nav-right.tpl.php";
+  ?>
+
+</main>

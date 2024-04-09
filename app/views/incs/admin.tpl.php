@@ -3,10 +3,7 @@
   require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
   <section class="card">
   <div class="category-wrapp">
-    
-    
-
-
+  
   </div>
 
   </section>

@@ -5,8 +5,10 @@
 
     <div class="card-item">
       <form action="" class="form" method="POST">
+        
         <label for="">питання</label>
         <input type="text" name="card_name" required>
+       
 
         <label for="">Відповідь</label>
         <textarea cols="19" rows="5" type="text" name="description" required></textarea>

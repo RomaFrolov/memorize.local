@@ -1,3 +1,150 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/**
+  Убираем внутренние отступы слева тегам списков,
+  у которых есть атрибут class
+ */
+:where(ul, ol):where([class]) {
+  padding-left: 0;
+}
+
+/**
+  Убираем внешние отступы body и двум другим тегам,
+  у которых есть атрибут class
+ */
+body,
+:where(blockquote, figure):where([class]) {
+  margin: 0;
+}
+
+/**
+  Убираем внешние отступы вертикали нужным тегам,
+  у которых есть атрибут class
+ */
+:where(h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  ul,
+  ol,
+  dl):where([class]) {
+  /*   margin-block: 0;*/
+  margin: 0px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0px;
+}
+
+:where(dd[class]) {
+  margin-left: 0;
+}
+
+:where(fieldset[class]) {
+  margin-left: 0;
+  padding: 0;
+  border: none;
+}
+
+/**
+  Убираем стандартный маркер маркированному списку,
+  у которого есть атрибут class
+ */
+:where(ul[class]) {
+  list-style: none;
+}
+
+/**
+  Обнуляем вертикальные внешние отступы параграфа,
+  объявляем локальную переменную для внешнего отступа вниз,
+  чтобы избежать взаимодействие с более сложным селектором
+ */
+p {
+  --paragraphMarginBottom: 24px;
+
+  margin-block: 0;
+}
+
+/**
+  Внешний отступ вниз для параграфа без атрибута class,
+  который расположен не последним среди своих соседних элементов
+ */
+p:where(:not([class]):not(:last-child)) {
+  margin-bottom: var(--paragraphMarginBottom);
+}
+
+
+/**
+  Упрощаем работу с изображениями
+ */
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/**
+  Наследуем свойства шрифт для полей ввода
+ */
+input,
+textarea,
+select,
+button {
+  font: inherit;
+}
+
+html {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  height: 100%;
+  /**
+    Плавный скролл
+   */
+  scroll-behavior: smooth;
+}
+
+body {
+  /**
+    Пригодится в большинстве ситуаций
+    (когда, например, нужно будет "прижать" футер к низу сайта)
+   */
+  min-height: 100%;
+  /**
+    Унифицированный интерлиньяж
+   */
+  line-height: 1.5;
+}
+
+/**
+  Приводим к единому цвету svg-элементы
+ */
+svg *[fill] {
+  fill: currentColor
+}
+
+svg *[stroke] {
+  stroke: currentColor
+}
+
+/**
+  Чиним баг задержки смены цвета при взаимодействии с svg-элементами
+ */
+svg * {
+  transition-property: fill, stroke;
+}
 $background-color: #F2DEBD;
 $a-color: #292718;
 $a-hover-color: #5b5b5b;
@@ -5,8 +152,9 @@ $yellow: #f1ad02;
 $cyan: #08b9ce;
 $nav-item: #e6e1da;
 $nav-item-hover: #f1ad02;
-$shadow-transition: 0.5s;
+$shadow-transition: 0.4s;
 $a-transition: 0.4s;
+$font-size: 16px;
 .input{
   position: relative;
   background-color: #d8d8d8;
@@ -26,7 +174,7 @@ $a-transition: 0.4s;
 
     // box-shadow: -5px 10px 13px -7px rgb(26, 25, 25);
     transition: $shadow-transition;
-    background-color: $cyan;
+    background-color: #7dd0da;
 
   }
 }
@@ -45,13 +193,12 @@ body {
     background: linear-gradient(90deg, rgb(83 48 61) 0%, rgb(109 93 111) 48%, rgb(74 63 88) 100%);
     border-radius: 20px;
     color: #f1ad02;
-    padding: 20px;
+    padding: 10px;
   }
 
   .container {
     width: 100%;
-    padding: 15px;
-    max-width: 1820px;
+    padding: 10px;
     margin: 0 auto;
     text-align: center;
   }
@@ -60,6 +207,8 @@ body {
     display: flex;
     flex-direction: row;
     gap: 20px;
+    height: 93vh;
+
   }
 
 
@@ -80,7 +229,7 @@ body {
     text-decoration: none;
     background-color: #548a97;
     border-radius: 30px;
-    padding: 20px;
+    padding: 10px;
     font-size: 20px;
     color: #e0ba59;
     transition: $a-transition;
@@ -113,10 +262,6 @@ body {
   padding: 10px;
   background-color: $cyan;
   background: linear-gradient(0deg, rgb(29 32 28) 0%, rgb(74 104 109) 47%, rgb(73 64 78) 100%);
-
-
-
-
   &__list {
     display: flex;
     flex-direction: column;
@@ -177,7 +322,7 @@ body {
     flex-direction: column;
     background-color: rgb(211, 218, 224, );
     // box-shadow: rgba(0, 0, 0, 0.7) -11px 15px 13px;
-    width: 245px;
+    width: 261px;
     // height: 400px;
     border-radius: 20px;
     box-shadow: inset -2px 2px 3px 0px rgb(238, 238, 238);
@@ -198,12 +343,22 @@ body {
       color: #4a3413;
       margin: 0px;
       margin-bottom: 0px;
+      flex: 0 0 auto;
+      min-height: 108px;
+
     }
 
 
     &__text {
       padding: 10px;
       flex: 1 1 auto;
+      text-align: start;
+      font-size: 18px;
+    }
+
+    &__title {
+      font-size:20px;
+
 
     }
 
@@ -252,14 +407,14 @@ body {
 
     border-radius: 20px;
     padding: 10px;
-    box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
+    // box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
     transition: $shadow-transition;
 
     &:hover {
       box-shadow: inset -5px 5px 6px 0px rgb(73, 73, 73);
       transition: $shadow-transition;
-      background-color: #56dde0;
-
+      background-color: #1086c5;
+      color: #d8d8d8;
     }
   }
 }

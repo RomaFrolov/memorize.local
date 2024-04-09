@@ -3,6 +3,7 @@
 /**
  * @var Db $db
  */
+require_once VIEWS . "/incs/header.tpl.php";
 
 $id = $_GET['id'] ?? 0;
 

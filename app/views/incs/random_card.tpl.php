@@ -3,14 +3,14 @@
   require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
 
   <section class="card">
-  <div class="form-button">
-        <form action="" method="POST">
-          <input type="hidden" name="random_count" value="3">
-          <button type="submit">Показати 3 рандомні пости</button>
-        </form>
-      </div>
+    <div class="form-button">
+      <form action="" method="POST">
+        <input type="hidden" name="random_count" value="2">
+        <button type="submit">Показати 2 рандомні пости</button>
+      </form>
+    </div>
     <div class="card-wrap">
-     
+
       <?php foreach ($rand_post as $item) : ?>
         <div class="card-item">
           <div class="card-item__wrap">
@@ -47,25 +47,24 @@
   };
 </script>
 <script>
-window.onload = () => {
-  let input = document.querySelector('#input');
-  input.oninput = function(){
-    let value = this.value.trim();
-    let list = document.querySelectorAll('.card-item');
+  window.onload = () => {
+    let input = document.querySelector('#input');
+    input.oninput = function() {
+      let value = this.value.trim();
+      let list = document.querySelectorAll('.card-item');
 
-    if(value){
-      list.forEach(elem => {
-        if(elem.innerText.search(value) == -1){
-          elem.classList.add('hide');
-        }
-      });
-    } else{
-      list.forEach(elem => {
-        elem.classList.remove('hide');
-      })
+      if (value) {
+        list.forEach(elem => {
+          if (elem.innerText.search(value) == -1) {
+            elem.classList.add('hide');
+          }
+        });
+      } else {
+        list.forEach(elem => {
+          elem.classList.remove('hide');
+        })
+      }
+      console.log(this.value);
     }
-  console.log(this.value);
   }
-}
-
 </script>
