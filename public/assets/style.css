@@ -50,6 +50,10 @@ h6 {
   margin: 0px;
 }
 
+h3 {
+  font-size: 20px;
+}
+
 :where(dd[class]) {
   margin-left: 0;
 }
@@ -302,6 +306,7 @@ body .blur {
       flex-wrap: wrap;
 }
 .card-item {
+  padding: 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -333,25 +338,27 @@ body .blur {
   -webkit-box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
           box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
   border-radius: 19px 19px 0 0;
-  padding: 10px;
+  margin: -10px -10px 10px -10px;
   color: #4a3413;
-  margin: 0px;
-  margin-bottom: 0px;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 auto;
           flex: 0 0 auto;
   min-height: 108px;
 }
 .card-item__text {
-  padding: 10px;
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
   text-align: start;
   font-size: 18px;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  overflow: hidden;
 }
 .card-item__title {
   font-size: 20px;
+  padding: 5px;
 }
 .card-item__link {
   padding: 10px;
@@ -409,4 +416,67 @@ body .blur {
   transition: 0.4s;
   background-color: #1086c5;
   color: #d8d8d8;
+}
+
+.word {
+  background-color: #f1ad02;
+}
+
+.card-content-item {
+  padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: rgb(211, 218, 224);
+  width: 100%;
+  border-radius: 20px;
+  -webkit-box-shadow: inset -2px 2px 3px 0px rgb(238, 238, 238);
+          box-shadow: inset -2px 2px 3px 0px rgb(238, 238, 238);
+  -webkit-box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
+          box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.card-content-item:hover {
+  -webkit-box-shadow: -5px 10px 13px -7px rgb(26, 25, 25);
+          box-shadow: -5px 10px 13px -7px rgb(26, 25, 25);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+.card-content-item__wrap {
+  background: -webkit-gradient(linear, left top, right top, from(rgb(249, 219, 148)), to(rgb(243, 211, 109)));
+  background: linear-gradient(90deg, rgb(249, 219, 148) 0%, rgb(243, 211, 109) 100%);
+  -webkit-box-shadow: inset -2px 2px 3px 0px rgb(238, 238, 238);
+          box-shadow: inset -2px 2px 3px 0px rgb(238, 238, 238);
+  -webkit-box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
+          box-shadow: 0px 7px 13px -7px rgb(26, 25, 25);
+  border-radius: 19px 19px 0 0;
+  margin: -10px -10px 10px -10px;
+  color: #4a3413;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 auto;
+          flex: 0 0 auto;
+  min-height: 70px;
+}
+.card-content-item__text {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  text-align: start;
+  font-size: 18px;
+}
+.card-content-item__title {
+  font-size: 20px;
+  padding: 5px;
+}
+.card-content-item__link {
+  padding: 10px;
+  text-align: center;
+}
+.card-content-item__link:hover {
+  color: #56dde0;
 }

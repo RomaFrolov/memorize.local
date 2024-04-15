@@ -15,13 +15,13 @@ $category = $db->query("SELECT * FROM `insectcategory`")->findAll();
     <div class="card-wrap">
 
 
-        <div class="card-item">
+        <div class="card-content-item">
 
-          <div class="card-item__wrap">
-            <h3 data-f="all" class="card-item__title "><?php echo ($card['title']); ?></h3>
+          <div class="card-content-item__wrap">
+            <h3 data-f="all" class="card-content-item__title "><?php echo ($card['title']); ?></h3>
           </div>
-          <p class="card-item__text"><?php echo ($card['description']); ?></p>
-          <a class="card-item__link" href="card?id=<?= ($card['id']); ?>">більше</a>
+          <p class="card-content-item__text"><?php echo ($card['description']); ?></p>
+          <a class="card-content-item__link" href="card?id=<?= ($card['id']); ?>">більше</a>
 
 
         </div>
