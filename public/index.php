@@ -1,10 +1,13 @@
 <?php
- require_once dirname(__DIR__) . '/config/config.php'; //файл з константами
+use myfrm\Db;
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once dirname(__DIR__) . '/config/config.php'; //файл з константами
 
 require_once CORE . "/function.php";
 
 
-require_once CORE . "/classes/Db.php";
+// require_once CORE . "/classes/Db.php";
 
 $db_confiq = require CONFIG . '/db.php';
 $db = (Db::getInstance())->getConnection($db_confiq);
