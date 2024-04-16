@@ -4,7 +4,7 @@
 
   <section class="card">
     <div class="form-button">
-      <form action="" method="POST">
+      <form action="random_card" method="POST">
         <input type="hidden" name="random_count" value="2">
         <button type="submit">Показати 2 рандомні пости</button>
       </form>

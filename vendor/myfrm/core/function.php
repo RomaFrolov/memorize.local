@@ -1,5 +1,7 @@
 <?php
 
+use myfrm\App;
+use myfrm\Db;
 
 function abort($code = 404)
 {
@@ -16,4 +18,22 @@ function load($filleble = [])
     }
   }
   return $data;
+}
+
+function db()
+{
+return App::get(Db::class);
+}
+function redirect($url = ''){
+  if($url){
+    $redirect = $url;
+  } else{
+    $redirect = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : PATH;
+  }
+  header ("Location: {$redirect}");
+  die;
+}
+
+function check_auth(){
+  return isset($_SESSION['user']);
 }

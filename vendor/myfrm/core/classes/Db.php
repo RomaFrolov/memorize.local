@@ -33,6 +33,9 @@ class Db
 
   public function getConnection(array $db_confiq)
   {
+    if($this->connection instanceof PDO){
+      return $this;
+    }
     $dsn = "mysql:host={$db_confiq['host']};dbname={$db_confiq['dbname']};charset={$db_confiq['charset']}";
     try {
       $this->connection = new PDO($dsn, $db_confiq['username'], $db_confiq['password'], $db_confiq['options']);

@@ -3,11 +3,15 @@
 /**
  * @var Db $db
  */
-require_once VIEWS . "/incs/header.tpl.php";
-$category = $db->query("SELECT * FROM `insectcategory`")->findAll();
-require_once VIEWS . "/incs/card_create.tpl.php";
+use myfrm\App;
+use myfrm\Db;
+$db = App::get(Db::class);
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+// require_once VIEWS . "/incs/header.tpl.php";
+$category = $db->query("SELECT * FROM `insectcategory`")->findAll();
+// require_once VIEWS . "/incs/card_create.tpl.php";
+
+// if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   $fillable = ['title', 'description', 'category'];
   $name = addslashes($_POST['card_name']);
 
@@ -31,12 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     $db->query("INSERT INTO `card` (`title`, `description`, `category`) 
           VALUES (?,?,?)", [$name, $description, $categoryes]);
-    // $db->query("INSERT INTO `card` (`id`, `title`, `description`, `category`) 
-    //         VALUES (NULL, '$name', '$description', '$categoryes')");
+    
+
     echo "<script>
           alert ('Картка успішно створенно');
           location.href ='create_card';
           </script>";
   
-}
+// }
 

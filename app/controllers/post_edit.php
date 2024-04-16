@@ -3,6 +3,9 @@
 /**
  * @var Db $db
  */
+use myfrm\App;
+use myfrm\Db;
+$db = App::get(Db::class);
 require_once VIEWS . "/incs/header.tpl.php";
 
 $name = addslashes($_POST['category']);

@@ -180,6 +180,8 @@ body {
 }
 body .hide {
   display: none;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 body header {
   background: -webkit-gradient(linear, left top, right top, from(rgb(83, 48, 61)), color-stop(48%, rgb(109, 93, 111)), to(rgb(74, 63, 88)));
@@ -187,6 +189,22 @@ body header {
   border-radius: 20px;
   color: #f1ad02;
   padding: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+body .registr a {
+  color: #ffffff;
+}
+body .registr a:hover {
+  color: #f1ad02;
 }
 body .container {
   width: 100%;

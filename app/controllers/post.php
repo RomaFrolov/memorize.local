@@ -3,6 +3,9 @@
 /**
  * @var Db $db
  */
+use myfrm\App;
+use myfrm\Db;
+$db = App::get(Db::class);
 
 $id = $_GET['id'] ?? 0;
 

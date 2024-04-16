@@ -1,8 +1,14 @@
 <?php
+
+use myfrm\Router;
+use myfrm\App;
+use myfrm\Db;
+
 require_once PUBLICS . "/index.php";
 require_once CONFIG . "/config.php";
 require_once VIEWS . "/incs/header.tpl.php";
 require_once CONFIG . '/insectClass.php';
+$db = App::get(Db::class);
 
 $id = $_GET['id'] ?? 0;
 

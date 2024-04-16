@@ -4,7 +4,7 @@
   <section class="card">
 
     <div class="card-item">
-      <form action="" class="form" method="POST">
+      <form action="create_card" class="form" method="POST">
         
         <label for="">питання</label>
         <input type="text" name="card_name" required>

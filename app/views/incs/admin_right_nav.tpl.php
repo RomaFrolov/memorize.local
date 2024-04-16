@@ -5,7 +5,7 @@
       <a class="main-right__link" href="create">Створити пост</a><br>
     </li>
     <li class="main-right__item">
-      <a class="main-right__link" href="create_card">Створити картку</a><br>
+      <a class="main-right__link" href="creates">Створити картку</a><br>
     </li>
     <li class="main-right__item">
       <a class="main-right__link" href="create_category">Створити категорію</a><br>

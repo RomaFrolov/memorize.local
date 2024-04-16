@@ -12,6 +12,18 @@
 <body>
   <header class="header">
     <h2><a class="logo" href="/">Логотип</a></h2>
+    <ul class="registr">
+      <?php if (check_auth()) : ?>
+        <li><?= $_SESSION['user']['name']; ?></li>
+        <li> <a href="registr">Logout</a>
+        </li>
+      <?php else : ?>
+        <li> <a href="registr">Registration</a>
+        </li>
+        <li> <a href="login">Login</a>
+        </li>
+      <?php endif; ?>
+    </ul>
   </header>
 </body>
 

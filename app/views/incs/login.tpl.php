@@ -1,0 +1,24 @@
+<main class="main container">
+  <?php
+  require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
+  <section class="card">
+  <div class="card-item">
+  <form action="" class="form" method="POST">
+    
+
+    <label for="">Email</label>
+    <input type="email" name="email" placeholder="email" required>
+
+    <label for="">Password</label>
+    <input type="password" name="password" placeholder="password" required>
+
+    
+    <button type="submit">Login</button>
+
+  </form>
+</div>
+  </section>
+  <!-- <?php require_once VIEWS . "/incs/admin_right_nav.tpl.php";
+  ?> -->
+</main>
+
