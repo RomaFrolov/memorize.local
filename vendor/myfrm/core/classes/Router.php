@@ -25,12 +25,14 @@ class Router
           if(!$middleware){
             throw new \Exception("Incorrect middleware {$route['middleware']}");
           }
+          var_dump ($route['middleware']);
           (new $middleware)->handle();
         }
         require CONTROLLERS . "/{$route['controller']}";
         $matches = true;
         break;
       }
+
     }
     if (!$matches) {
       abort();

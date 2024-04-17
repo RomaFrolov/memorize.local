@@ -11,19 +11,23 @@ const MIDDLEWARE=[
 ];
 
 $router->get('','index.php');
-$router->get('admin','admin.php')->only('auth');
+$router->get('admin','admin.php');
 $router->get('item','item.php');
-$router->get('registr','registr.php')->only('guest');
+$router->get('registr','registr.php');
+$router->post('registr','store.php');
 $router->get('login','login.php');
+$router->post('login','login.php');
+$router->get('logout','logout.php');
 
 $router->get('create','post_create.php');
 $router->get('create','post_create.php');
 $router->get('post_edit','post_edit.php');
 
 $router->get('card','card.php');
-$router->get('creates','creates.php')->only('auth');
+$router->get('creates','creates.php');
 $router->post('create_card','card_create.php');
 $router->get('card_edit','card_edit.php');
+$router->post('card_edit','card_edit.php');
 
 $router->get('create_category','category_create.php');
 $router->get('edit_category','category_edit.php');

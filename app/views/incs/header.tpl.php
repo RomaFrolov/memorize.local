@@ -1,3 +1,5 @@
+<?php session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +16,8 @@
     <h2><a class="logo" href="/">Логотип</a></h2>
     <ul class="registr">
       <?php if (check_auth()) : ?>
-        <li><?= $_SESSION['user']['name']; ?></li>
-        <li> <a href="registr">Logout</a>
+        <li><?= $_SESSION['user']['login']; ?></li>
+        <li> <a href="logout">Logout</a>
         </li>
       <?php else : ?>
         <li> <a href="registr">Registration</a>

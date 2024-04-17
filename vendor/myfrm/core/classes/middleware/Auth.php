@@ -1,6 +1,5 @@
 <?php
 namespace myfrm\middleware;
-
 class Auth{
 
 

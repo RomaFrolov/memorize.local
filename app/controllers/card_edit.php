@@ -28,13 +28,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   alert ('Пост успішно редаговано');
   location.href ='card?id={$id}';
   </script>";
+  if (isset($_POST['delete_card'])) {
+    $id = $_GET['id'];
+    $db->query("DELETE FROM `card` WHERE `card`.`id` = '$id'");
+    echo "<script>
+    alert ('Пост успішно видалено');
+    </script>";
+    redirect('/');
+  }
 }
-if (isset($_POST['delete_card'])) {
-  $id = $_GET['id'];
-  $db->query("DELETE FROM `card` WHERE `card`.`id` = '$id'");
-  echo "<script>
-            alert ('Пост успішно видален');
-            location.href ='';
-            </script>";
-}
+
 
