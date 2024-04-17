@@ -32,4 +32,6 @@ $insectClass = [
     'Embioptera'=>'28',
     'php'=>'100',
     'new'=>'108',
+    'admin1'=>'110',
+    'admin2'=>'111',
 ];

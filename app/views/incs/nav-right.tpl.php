@@ -13,6 +13,8 @@
       <li class="main-right__item">
         <a class="main-right__link" href="?category=<?= ($item['category']); ?>"> <?= ($item['category']); ?></a>
       </li>
+      
+      
 
     <?php endforeach; ?>
 

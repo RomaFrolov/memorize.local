@@ -30,11 +30,15 @@ $router->get('card_edit','card_edit.php');
 $router->post('card_edit','card_edit.php');
 
 $router->get('create_category','category_create.php');
+$router->post('create_category','category_create.php');
 $router->get('edit_category','category_edit.php');
+$router->post('edit_category','category_edit.php');
 $router->get('delete_category','category_delete.php');
+$router->post('delete_category','category_delete.php');
 
 $router->get('random_card','random_card.php');
 $router->post('random_card','random_card.php');
+
 
 
 // $routes = [

@@ -1,12 +1,14 @@
 <?php
 
-namespace myfrm;
 
+namespace myfrm;
 
 class App
 {
 
+
   protected static $container;
+
 
   public static function getContainer(){
     return static::$container;

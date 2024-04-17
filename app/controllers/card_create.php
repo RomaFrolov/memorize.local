@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 /**
  * @var Db $db
@@ -19,6 +20,7 @@ $fillable = ['title', 'description'];
 
 // $description = addslashes($_POST['description']);
 $category = $_POST['categories'];
+$author = $_SESSION['user']['login'];
 
 $data = load($fillable);
 
@@ -35,8 +37,8 @@ if (empty(addslashes(trim($data['description'])))) {
 // }
 
 if (empty($errors)) {
-  $db->query("INSERT INTO `card` (`title`, `description`, `category`) 
-          VALUES (?,?,?)", [$data['title'], $data['description'], $category]);
+  $db->query("INSERT INTO `card` (`title`, `description`, `category`,`author`) 
+          VALUES (?,?,?,?)", [$data['title'], $data['description'], $category, $author]);
 
 
   echo "<script>
