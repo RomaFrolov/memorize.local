@@ -1,8 +1,7 @@
 <main class="main container">
   <?php
-  require_once VIEWS . "/incs/nav-main.tpl.php";
-  ?>
-
+  require_once VIEWS . "/incs/nav-main.tpl.php"; ?>
+<h1>category</h1>
   <section class="card">
     <div class="form-button">
       <form action="random_card" method="POST">

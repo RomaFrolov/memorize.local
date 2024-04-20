@@ -29,6 +29,8 @@ $router->post('create_card','card_create.php');
 $router->get('card_edit','card_edit.php');
 $router->post('card_edit','card_edit.php');
 
+$router->get('category','category.php');
+$router->post('category','category.php');
 $router->get('create_category','category_create.php');
 $router->post('create_category','category_create.php');
 $router->get('edit_category','category_edit.php');

@@ -20,7 +20,7 @@ $fillable = ['title', 'description'];
 
 // $description = addslashes($_POST['description']);
 $category = $_POST['categories'];
-$author = $_SESSION['user']['login'];
+$author = $_SESSION['user']['id'];
 
 $data = load($fillable);
 

@@ -15,7 +15,7 @@ $db = App::get(Db::class);
 $id = $_GET['id'] ?? 0;
 $author =null;
 if(isset($_SESSION['user'])){
-  $author = $_SESSION['user']['login'];
+  $author = $_SESSION['user']['id'];
 
 }
 
