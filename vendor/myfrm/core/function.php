@@ -37,3 +37,8 @@ function redirect($url = ''){
 function check_auth(){
   return isset($_SESSION['user']);
 }
+function print_arr($arr){
+  echo "<pre>";
+  print_r ($arr);
+  echo "</pre>";
+}

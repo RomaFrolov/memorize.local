@@ -1,5 +1,9 @@
+
 <?php
-session_start();
+// session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 'on');
+mb_internal_encoding('UTF-8');
 
 use myfrm\Router;
 use myfrm\App;
@@ -24,6 +28,7 @@ $card = $db->query("SELECT * FROM `card`  WHERE `author`='$author'")->findAll();
 $number = count($card);
 $category = $db->query("SELECT * FROM `insectcategory` WHERE `author`='$author' ORDER BY `insectcategory`.`category` ASC
 ")->findAll();
+
 
 if (isset($_GET['category'])) {
   if ($_GET['category']) {

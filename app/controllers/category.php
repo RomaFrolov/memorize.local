@@ -17,6 +17,14 @@ $id = $_GET['id'] ?? 0;
 
 $card = $db->query("SELECT * FROM `card` WHERE `category` = '$id' AND `author`='$author'")->findAll();
 
+$rand_post = [];
+$number = count($card);
+$rand_post = array_rand($card, $number);
 
-
+if (isset($_GET['category'])) {
+  if (isset($_POST['random_count'])) {
+    $number = ($_POST['random_count']);
+    $rand_post = array_rand($card, $number);
+  }
+}
 require_once VIEWS . "/incs/category.tpl.php";

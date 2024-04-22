@@ -1,18 +1,42 @@
 <main class="main container">
   <?php
   require_once VIEWS . "/incs/nav-main.tpl.php";
+ 
   ?>
 
   <section class="card">
     <div class="form-button">
-      <form action="random_card" method="POST">
+
+      <form action="" method="POST">
+        <input type="hidden" name="random_count" value="3">
+        <button  type="submit">Показати 3 рандомні пости</button>
+        </form> 
+        <form action="" method="POST">
+        <input type="hidden" name="random_count" value="5">
+        <button  type="submit">Показати 5 рандомні пости</button>
+        </form> 
+        <form action="" method="POST">
+        <input type="hidden" name="random_count" value="8">
+        <button  type="submit">Показати 8 рандомні пости</button>
+        </form> 
+
+      <!-- <form action="random_card">
         <input type="hidden" name="random_count" value="2">
         <button type="submit">Показати 2 рандомні пости</button>
-      </form>
+        
+      </form> -->
+      <!-- <div class="btn"> <a href="?<?= $url[1] ?>">Показати 3 рандомні пости</a>
+      </div> -->
+      <!-- <div class="btn"> <a href="?<?= $url[1] ?>">Показати 5 рандомні пости</a>
+      </div>
+      <div class="btn"> <a href="?<?= $url[1] ?>">Показати 8 рандомні пости</a>
+      </div> -->
+    
     </div>
     <div class="card-wrap">
 
       <?php foreach ($rand_post as $item) : ?>
+        
         <div class="card-item">
           <div class="card-item__wrap">
             <h3 class="card-item__title"><?php echo ($card[$item]['title']); ?></h3>
