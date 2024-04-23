@@ -8,11 +8,16 @@ use myfrm\App;
 use myfrm\Db;
 $db = App::get(Db::class);
 
+$author =null;
+if(isset($_SESSION['user'])){
+  $author = $_SESSION['user']['id'];
+
+}
+
 require_once VIEWS . "/incs/header.tpl.php";
 
-$category = $db->query("SELECT * FROM `insectcategory` ORDER BY `insectcategory`.`category` ASC
+$category = $db->query("SELECT * FROM `insectcategory` WHERE `author`='$author' ORDER BY `insectcategory`.`category` ASC
 ")->findAll();
-
 require_once VIEWS . "/incs/category_delete.tpl.php";
 
 
